@@ -1,0 +1,84 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Scripts/click.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/song.gd" type="Script" id=3]
+[ext_resource path="res://Fonts/couriercyrps.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Fonts/couriercyrps_bold.ttf" type="DynamicFontData" id=5]
+
+[sub_resource type="DynamicFontData" id=2]
+font_path = "res://Fonts/ClearSans-Regular.ttf"
+
+[sub_resource type="DynamicFont" id=1]
+font_data = SubResource( 2 )
+
+[sub_resource type="Theme" id=5]
+Fonts/fonts/large = null
+Fonts/fonts/normal = SubResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 22
+font_data = ExtResource( 5 )
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0.784314, 0.784314, 0.784314, 1 )
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="DynamicFont" id=7]
+size = 13
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 25
+font_data = ExtResource( 5 )
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="background" type="Node2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="background"]
+margin_right = 576.0
+margin_bottom = 1024.0
+color = Color( 0.847059, 0.847059, 0.847059, 1 )
+
+[node name="Button" type="Button" parent="."]
+margin_left = 138.0
+margin_top = 952.0
+margin_right = 438.0
+margin_bottom = 1002.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource( 5 )
+custom_fonts/font = SubResource( 3 )
+text = "All Songs"
+script = ExtResource( 2 )
+
+[node name="Panel" type="Panel" parent="."]
+margin_left = 10.0
+margin_top = 110.0
+margin_right = 566.0
+margin_bottom = 910.0
+custom_styles/panel = SubResource( 6 )
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel"]
+margin_left = 25.0
+margin_top = 20.0
+margin_right = 545.0
+margin_bottom = 780.0
+
+[node name="Label" type="Label" parent="Panel/ScrollContainer"]
+margin_bottom = 15.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 7 )
+
+[node name="SongLabel" type="Label" parent="."]
+margin_right = 576.0
+margin_bottom = 124.0
+theme = SubResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 4 )
+align = 1
+valign = 1
